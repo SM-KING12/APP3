@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord - Tour de Contrôle</title>
+    <link rel="stylesheet" href="TourdeControl.css">
+    <script defer src="TourdeControl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Tour de Contrôle</h1>
+    </header>
+    <main class="dashboard">
+        <!-- Indicateurs circulaires -->
+        <section class="gauges">
+            <div class="gauge-container">
+                <canvas id="waterLevelGauge" width="200" height="200"></canvas>
+                <p>Niveau d'Eau</p>
+            </div>
+            <div class="gauge-container">
+                <canvas id="foodLevelGauge" width="200" height="200"></canvas>
+                <p>Quantité de Nourriture</p>
+            </div>
+            <div class="gauge-container">
+                <canvas id="temperatureGauge" width="200" height="200"></canvas>
+                <p>Température</p>
+            </div>
+        </section>
+
+        <!-- Graphiques -->
+        <section class="charts">
+            <div class="chart-container">
+                <h2>Évolution Mensuelle des Données</h2>
+                <canvas id="monthlyDataChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Consommation Hebdomadaire</h2>
+                <canvas id="weeklyConsumptionChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Boutons de contrôle -->
+        <section class="controls">
+            <button id="toggleLight">Lumière : OFF</button>
+            <button id="adjustTemperature">Régler la Température</button>
+            <button id="refillWater">Recharger l'Eau</button>
+            <button id="refillFood">Recharger la Nourriture</button>
+        </section>
+
+        <!-- Notifications -->
+        <div id="notifications" class="notifications"></div>
+
+        <!-- Pop-up pour régler la température -->
+        <div id="temperatureModal" class="modal">
+            <div class="modal-content">
+                <h2>Régler la température</h2>
+                <input type="number" id="temperatureInput" placeholder="Entrez la nouvelle température (°C)">
+                <button id="setTemperature">Confirmer</button>
+                <button id="closeModal">Annuler</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

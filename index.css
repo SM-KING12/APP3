@@ -1,0 +1,157 @@
+/* Réinitialisation */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Corps de la page */
+body {
+    background: #1a1a1a;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #FFC107;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Bouton Hamburger */
+.hamburger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.line {
+    width: 30px;
+    height: 4px;
+    background: #fff;
+    transition: 0.4s;
+}
+
+/* Menu Latéral */
+.side-menu {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background:burlywood;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: left 0.3s ease;
+    z-index: 999;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.side-menu ul li {
+    margin: 20px 0;
+    position: relative;
+}
+
+.side-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Effet de survol moderne */
+.side-menu ul li a:hover {
+    font-size: 2rem;
+    color: #FFC107;
+    transform: scale(1.1);
+    text-shadow: 0 0 10px #FFC107;
+}
+
+/* Indicateur de sélection */
+.side-menu ul li a:focus {
+    font-size: 2.5rem;
+    color: #E64A19;
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+/* Animation du bouton Hamburger */
+.hamburger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Menu ouvert */
+.side-menu.active {
+    left: 0;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Contenu Principal */
+.hero-section {
+    padding-top: 80px;
+    text-align: center;
+    background: url('https://source.unsplash.com/1600x900/?chicken,farm') no-repeat center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+}
+
+.cta-button {
+    padding: 12px 24px;
+    background: #FF9800;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background: #E64A19;
+}
+
