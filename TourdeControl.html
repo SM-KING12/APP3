@@ -1,66 +1,67 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau de Bord - Tour de Contrôle</title>
-    <link rel="stylesheet" href="TourdeControl.css">
-    <script defer src="TourdeControl.js"></script>
+    <title>Tour de Controle</title>
+    <link rel="stylesheet" href="TourdeControl.CSS">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="TourdeControl.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Tour de Contrôle</h1>
-    </header>
-    <main class="dashboard">
-        <!-- Indicateurs circulaires -->
-        <section class="gauges">
-            <div class="gauge-container">
-                <canvas id="waterLevelGauge" width="200" height="200"></canvas>
-                <p>Niveau d'Eau</p>
-            </div>
-            <div class="gauge-container">
-                <canvas id="foodLevelGauge" width="200" height="200"></canvas>
-                <p>Quantité de Nourriture</p>
-            </div>
-            <div class="gauge-container">
-                <canvas id="temperatureGauge" width="200" height="200"></canvas>
-                <p>Température</p>
-            </div>
-        </section>
-
-        <!-- Graphiques -->
-        <section class="charts">
-            <div class="chart-container">
-                <h2>Évolution Mensuelle des Données</h2>
-                <canvas id="monthlyDataChart"></canvas>
-            </div>
-            <div class="chart-container">
-                <h2>Consommation Hebdomadaire</h2>
-                <canvas id="weeklyConsumptionChart"></canvas>
-            </div>
-        </section>
-
-        <!-- Boutons de contrôle -->
-        <section class="controls">
-            <button id="toggleLight">Lumière : OFF</button>
-            <button id="adjustTemperature">Régler la Température</button>
-            <button id="refillWater">Recharger l'Eau</button>
-            <button id="refillFood">Recharger la Nourriture</button>
-        </section>
-
-        <!-- Notifications -->
-        <div id="notifications" class="notifications"></div>
-
-        <!-- Pop-up pour régler la température -->
-        <div id="temperatureModal" class="modal">
-            <div class="modal-content">
-                <h2>Régler la température</h2>
-                <input type="number" id="temperatureInput" placeholder="Entrez la nouvelle température (°C)">
-                <button id="setTemperature">Confirmer</button>
-                <button id="closeModal">Annuler</button>
+        <div class="dashboard-header">
+            <h1>Tour de Controle</h1>
+            <div>
+                <button class="logout-btn" id="generate-report">Générer un rapport</button>
+                <button class="logout-btn" id="logout-btn">Déconnexion</button>
             </div>
         </div>
+    </header>
+    <main>
+        <section class="stats">
+            <div class="stat-box">
+                <h2>Température</h2>
+                <p id="temperature">0°C</p>
+                <canvas id="temperature-chart" class="chart"></canvas>
+            </div>
+            <div class="stat-box">
+                <h2>Eau</h2>
+                <p id="humidity">0%</p>
+                <canvas id="humidity-chart" class="chart"></canvas>
+            </div>
+            <div class="stat-box">
+                <h2>Stock d'Aliments</h2>
+                <p id="food-stock">0 kg</p>
+                <canvas id="food-stock-chart" class="chart"></canvas>
+            </div>
+        </section>
+
+        <section class="alerts">
+            <h2>Alertes</h2>
+            <ul id="alerts-list">
+                <li>Aucune alerte.</li>
+            </ul>
+        </section>
+
+        <section class="controls">
+            <h2>Commandes</h2>
+            <button class="control-btn" id="set-temperature">Régler Température</button>
+            <button class="control-btn" id="distribute-food">Distribuer les aliments</button>
+            <button class="control-btn" id="activate-pump">Activer la pompe à eau</button>
+        </section>
+
+        <section class="light-controls">
+            <h2>Gestion des Lumières</h2>
+            <img id="light-bulb" class="light-image" src="ampoule-eteinte.webp" alt="Ampoule">
+            <button class="control-btn" id="light-on">Allumer la lumière</button>
+            <button class="control-btn" id="light-off">Éteindre la lumière</button>
+        </section>
     </main>
+    <footer>
+        <p>&copy; 2025 Dashboard</p>
+    </footer>
+    <div id="notifications-container"></div>
 </body>
 </html>
